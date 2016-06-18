@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ToDoList">
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+	<title>AngularJS To-do List</title>
+	<script src="js/angular-local-storage.js"></script>
+	<script src="js/controller.js"></script>
+</head>
+<body ng-controller="ToDoController">
+	<form ng-submit="addTask()">
+		<input class="form-inline" type="text" ng-model="newActv.descripcion">
+		<input class="form-inline" type="datetime-local" ng-model="newActv.fecha">
+		<input class="form-inline btn btn-default" type="submit" value="Guardar tarea">
+		<button  class="form-inline btn btn-default" ng-click="todo = []">Limpiar</button>
+	</form>
+	<ul>
+		<li ng-repeat="tarea in todo">
+			{{tarea.descripcion}} - {{tarea.fecha}}
+		</li>
+	</ul>
+</body>
+</html>
